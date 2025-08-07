@@ -1,0 +1,59 @@
+<!-- 
+  This file consists of the HTML home page for the CareerFinderAI application.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Path Finder</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">CareerPathFinder</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Help</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Find Your Perfect Career Path</h1>
+    <p>Discover careers that match your strengths and passions.</p>
+    <a href="quiz.html" class="quizbtn">Take the Quiz</a>
+  </section>
+
+  <script>
+    // go to quiz page when clicking the button
+    document.getElementById("quizbtn").onclick = function() {
+      window.location.href = "quiz.html";
+    };
+  </script>
+
+  <section class="steps">
+    <h2>How It Works</h2>
+    <div class="step-cards">
+      <div class="card">
+        <h3>1. Take the Quiz</h3>
+        <p>Answer simple questions about your interests and skills.</p>
+      </div>
+      <div class="card">
+        <h3>2. Get Recommendations</h3>
+        <p>Receive personalized career paths tailored to you.</p>
+      </div>
+      <div class="card">
+        <h3>3. Explore Options</h3>
+        <p>Learn about programs, salaries, and job outlooks.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p> Career Path Finder | Haya Mahmoud</p>
+  </footer>
+</body>
+<script src="scripts.js"></script>
+</html>

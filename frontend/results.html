@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Quiz Results</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Your Career Recommendation</h1>
+    <div id="result"></div>
+    <button id="backHome">Back to Home</button>
+  </div>
+  <script>
+    // Display the result from localStorage
+    const result = localStorage.getItem("careerResult");
+    document.getElementById("result").innerText = result || "No result found.";
+
+    // Back to home button
+    document.getElementById("backHome").onclick = function() {
+      window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>

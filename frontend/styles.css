@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5eaf1;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #4F46E5;
+}
+
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  color: #4F46E5;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #f0f4f8, #ffffff);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+}
+
+.quizbtn {
+  background-color: #4F46E5;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #4338CA;
+}
+
+/* Steps Section */
+.steps {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.steps h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.step-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #4F46E5;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #dce3ec;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}

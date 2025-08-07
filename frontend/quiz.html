@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Quiz</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Career Path Quiz</h1>
+    <form id="careerQuizForm">
+      <div class="question">
+        <label>1. What do you enjoy more?</label><br>
+        <input type="radio" name="q1" value="working with people" required> Working with people<br>
+        <input type="radio" name="q1" value="solving technical problems"> Solving technical problems<br>
+        <input type="radio" name="q1" value="organizing and planning"> Organizing and planning<br>
+      </div>
+
+      <div class="question">
+        <label>2. What environment do you prefer?</label><br>
+        <input type="radio" name="q2" value="outdoors" required> Outdoors<br>
+        <input type="radio" name="q2" value="office setting"> Office setting<br>
+        <input type="radio" name="q2" value="lab or workshop"> Lab or workshop<br>
+      </div>
+
+      <div class="question">
+        <label>3. Which subject do you like most?</label><br>
+        <input type="radio" name="q3" value="biology"> Biology<br>
+        <input type="radio" name="q3" value="math and coding"> Math and Coding<br>
+        <input type="radio" name="q3" value="writing and communication"> Writing and Communication<br>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result" class="hidden"></div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
