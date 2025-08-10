@@ -22,10 +22,16 @@ document
     });
 
     const data = await response.json();
+    // if (data.success) {
+    //   localStorage.setItem("careerResult", data.text);
+    //   window.location.href = "results.html";
+    // } else {
+    //   alert(data.message || "No response from API.");
+    // }
     if (data.success) {
-      localStorage.setItem("careerResult", data.text);
+      localStorage.setItem("careerResult", JSON.stringify(data));
       window.location.href = "results.html";
     } else {
       alert(data.message || "No response from API.");
-    }
+  }
   });

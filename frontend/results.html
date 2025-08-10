@@ -1,25 +1,273 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Career Quiz Results</title>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your Career Recommendation</h1>
+      <div id="result"></div>
+      <button id="backHome">Back to Home</button>
+    </div>
+     <script>
+      // Display the result from localStorage
+      const result = localStorage.getItem("careerResult");
+      // document.getElementById("result").innerText = result || "No result found.";
+      document.getElementById("result").innerHTML = result
+        ? result.replace(/\n[-•]/g, "<br>•")
+        : "No result found.";
+      // Back to home button
+      document.getElementById("backHome").onclick = function () {
+        window.location.href = "index.html";
+      };
+    </script>
+    <script>
+      // Get result from localStorage
+      let result = localStorage.getItem("careerResult");
+      try {
+        result = JSON.parse(result || "{}");
+      } catch {
+        result = {};
+      }
+
+      // If result is a stringified JSON inside a code block, clean it up
+      if (typeof result.summary === "undefined" && typeof result === "string") {
+        // Remove code block markers if present
+        let cleaned = result.replace(/```json|```/g, "").trim();
+        try {
+          result = JSON.parse(cleaned);
+        } catch {
+          result = {};
+        }
+      }
+
+      const resultDiv = document.getElementById("result");
+
+      if (result.summary && Array.isArray(result.careers)) {
+        let html = `<p class="career-summary">${result.summary}</p><div class="career-cards">`;
+        result.careers.forEach((career) => {
+          html += `
+        <div class="career-card" tabindex="0">
+          <span class="career-title">${career.title}</span>
+          <span class="career-desc">${career.description}</span>
+        </div>
+      `;
+        });
+        html += "</div>";
+        resultDiv.innerHTML = html;
+      } else {
+        resultDiv.innerText = "No result found.";
+      }
+
+      // Back to home button
+      document.getElementById("backHome").onclick = function () {
+        window.location.href = "index.html";
+      };
+    </script>
+  </body>
+  <style>
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(80, 80, 255, 0.07);
+    }
+    h1 {
+      color: #4f46e5;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+    }
+    .career-summary {
+      font-size: 1.18em;
+      margin-bottom: 2em;
+      color: #22223b;
+      text-align: center;
+      font-weight: 500;
+    }
+    .career-cards {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .career-card {
+      background: #f5f7fa;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      position: relative;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+      min-width: 180px;
+      max-width: 240px;
+      margin-bottom: 1rem;
+      outline: none;
+      text-align: center;
+    }
+    .career-card:hover,
+    .career-card:focus {
+      box-shadow: 0 4px 16px rgba(80, 80, 255, 0.15);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .career-title {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #4f46e5;
+      font-size: 1.13em;
+    }
+    .career-desc {
+      display: none;
+      font-size: 0.98em;
+      color: #444;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      padding: 0.7rem 1rem;
+      width: 100%;
+      z-index: 10;
+      margin-top: 0.3rem;
+      pointer-events: none;
+      text-align: left;
+    }
+    .career-card:hover .career-desc,
+    .career-card:focus .career-desc {
+      display: block;
+    }
+    #backHome {
+      display: block;
+      margin: 2rem auto 0 auto;
+      padding: 0.8rem 2.2rem;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: background 0.2s;
+    }
+    #backHome:hover {
+      background-color: #4338ca;
+    }
+  </style>
+</html> -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Career Quiz Results</title>
-  <link rel="stylesheet" href="quiz.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>Your Career Recommendation</h1>
-    <div id="result"></div>
-    <button id="backHome">Back to Home</button>
-  </div>
-  <script>
-    // Display the result from localStorage
-    const result = localStorage.getItem("careerResult");
-    document.getElementById("result").innerText = result || "No result found.";
-
-    // Back to home button
-    document.getElementById("backHome").onclick = function() {
-      window.location.href = "index.html";
-    };
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Career Quiz Results</title>
+    <link rel="stylesheet" href="quiz.css" />
+    <style>
+      .career-summary {
+        font-size: 1.18em;
+        margin-bottom: 2em;
+        color: #22223b;
+        text-align: center;
+        font-weight: 500;
+      }
+      .career-cards {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .career-card {
+        background: #f5f7fa;
+        border-radius: 12px;
+        padding: 1.2rem 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        position: relative;
+        cursor: pointer;
+        transition: box-shadow 0.2s, transform 0.2s;
+        min-width: 180px;
+        max-width: 240px;
+        margin-bottom: 1rem;
+        outline: none;
+        text-align: center;
+        font-size: 1.1em;
+      }
+      .career-card:hover,
+      .career-card:focus {
+        box-shadow: 0 4px 16px rgba(80, 80, 255, 0.15);
+        transform: translateY(-4px) scale(1.03);
+      }
+      .career-title {
+        font-weight: bold;
+        color: #4f46e5;
+        font-size: 1.13em;
+        display: block;
+      }
+      .career-desc {
+        display: none;
+        font-size: 0.98em;
+        color: #444;
+        position: absolute;
+        left: 50%;
+        top: 110%;
+        transform: translateX(-50%);
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        padding: 0.7rem 1rem;
+        width: 260px;
+        z-index: 10;
+        margin-top: 0.3rem;
+        pointer-events: none;
+        text-align: left;
+        border: 1px solid #e0e7ef;
+      }
+      .career-card:hover .career-desc,
+      .career-card:focus .career-desc {
+        display: block;
+      }
+      #backHome {
+        display: block;
+        margin: 2rem auto 0 auto;
+        padding: 0.8rem 2.2rem;
+        background-color: #4f46e5;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.1em;
+        transition: background 0.2s;
+      }
+      #backHome:hover {
+        background-color: #4338ca;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your Career Recommendation</h1>
+      <div id="result"></div>
+      <button id="backHome">Back to Home</button>
+    </div>
+    <script>
+      // Display the result from localStorage
+      const result = localStorage.getItem("careerResult");
+      // document.getElementById("result").innerText = result || "No result found.";
+      document.getElementById("result").innerHTML = result
+        ? result.replace(/\n[-•]/g, "<br>•")
+        : "No result found.";
+      // Back to home button
+      document.getElementById("backHome").onclick = function () {
+        window.location.href = "index.html";
+      };
+    </script> 
+    
+  </body>
 </html>

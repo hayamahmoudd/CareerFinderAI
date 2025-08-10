@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #f5f7fb;
   padding: 2rem;
   color: #111827;
@@ -11,11 +11,11 @@ body {
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
-  color: #4F46E5;
+  color: #4f46e5;
   margin-bottom: 1.5rem;
 }
 
@@ -23,9 +23,10 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-button, .quizbtn {
+button,
+.quizbtn {
   padding: 0.75rem 1.5rem;
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   color: white;
   border: none;
   border-radius: 8px;
@@ -34,16 +35,67 @@ button, .quizbtn {
 }
 
 button:hover {
-  background-color: #4338CA;
+  background-color: #4338ca;
 }
 
 #result {
   margin-top: 2rem;
   padding: 1rem;
   background-color: #f0f4f8;
-  border-left: 4px solid #4F46E5;
+  border-left: 4px solid #4f46e5;
 }
 
 .hidden {
   display: none;
 }
+/* .career-cards {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.career-card {
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-width: 180px;
+  max-width: 220px;
+  margin-bottom: 1rem;
+  outline: none;
+}
+.career-card:hover,
+.career-card:focus {
+  box-shadow: 0 4px 16px rgba(80, 80, 255, 0.15);
+  transform: translateY(-4px) scale(1.03);
+}
+.career-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4f46e5;
+  font-size: 1.08em;
+}
+.career-desc {
+  display: none;
+  font-size: 0.97em;
+  color: #444;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 0.7rem 1rem;
+  width: 100%;
+  z-index: 10;
+  margin-top: 0.3rem;
+  pointer-events: none;
+}
+.career-card:hover .career-desc,
+.career-card:focus .career-desc {
+  display: block;
+} */
