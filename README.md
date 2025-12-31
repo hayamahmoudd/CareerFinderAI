@@ -1,4 +1,4 @@
-# CareerPathFinder AI 🎯
+# CareerPathFinder AI 
 
 A personalized career recommendation web application that uses Google's Gemini AI (2.5 Model) to suggest tailored career paths based on user responses to an intelligent, adaptive quiz.
 
