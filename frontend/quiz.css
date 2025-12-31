@@ -1,9 +1,9 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%);
   min-height: 100vh;
   padding: 2rem;
-  color: #111827;
+  color: #3e2723;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,39 +16,90 @@ body {
   background: #ffffff;
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 50px rgba(93, 64, 55, 0.15);
+  border: 2px solid #e3d5ca;
 }
 
 h1 {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
 }
 
+.subtitle {
+  text-align: center;
+  color: #6d4c41;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 2rem;
+  background: #f5ebe0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.progress-text {
+  text-align: center;
+  color: #6d4c41;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.progress-bar-bg {
+  background: #e3d5ca;
+  border-radius: 20px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, #8d6e63 0%, #6d4c41 100%);
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+/* Question Styling */
 .question {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: #f8f9ff;
+  background: #fdfbf7;
   border-radius: 12px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #8d6e63;
+  animation: slideIn 0.4s ease-out;
 }
 
-.question label {
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.question label:first-child {
   display: block;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1f2937;
+  color: #5d4037;
   font-size: 1.1rem;
 }
 
 .question input[type="radio"] {
   margin-right: 0.75rem;
-  accent-color: #667eea;
+  accent-color: #8d6e63;
   cursor: pointer;
   width: 18px;
   height: 18px;
@@ -62,16 +113,18 @@ h1 {
   padding: 0.75rem;
   border-radius: 8px;
   transition: background 0.2s;
+  color: #5d4037;
 }
 
 .question label[for]:hover {
   background: #ffffff;
 }
 
+/* Buttons */
 button,
 .quizbtn {
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
   color: white;
   border: none;
   border-radius: 50px;
@@ -79,30 +132,40 @@ button,
   font-weight: 600;
   font-size: 1.1rem;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(109, 76, 65, 0.3);
   display: block;
   margin: 2rem auto 0;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 28px rgba(109, 76, 65, 0.4);
 }
 
-button:active {
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:active:not(:disabled) {
   transform: translateY(-1px);
 }
 
-#result {
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #f0f4f8;
-  border-left: 4px solid #667eea;
-  border-radius: 8px;
 }
 
-.hidden {
-  display: none;
+.button-group button {
+  margin: 0;
+  flex: 1;
+  max-width: 200px;
+}
+
+#prevBtn {
+  background: linear-gradient(135deg, #a1887f 0%, #8d6e63 100%);
 }
 
 /* Loading Spinner */
@@ -121,18 +184,22 @@ button:active {
   to { transform: rotate(360deg); }
 }
 
+.hidden {
+  display: none;
+}
+
 /* Career Summary */
 .career-summary {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
-  color: #1f2937;
+  color: #5d4037;
   text-align: center;
   font-weight: 500;
   line-height: 1.8;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #fdfbf7 0%, #ffffff 100%);
   border-radius: 12px;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #e3d5ca;
 }
 
 /* Career Cards */
@@ -144,30 +211,30 @@ button:active {
 }
 
 .career-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 2px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(93, 64, 55, 0.12);
+  border: 2px solid #e3d5ca;
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .career-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-  border-color: #667eea;
+  box-shadow: 0 10px 30px rgba(93, 64, 55, 0.18);
+  border-color: #a1887f;
 }
 
 .career-title {
   font-weight: 700;
-  color: #667eea;
+  color: #6d4c41;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   display: block;
 }
 
 .career-description {
-  color: #4b5563;
+  color: #5d4037;
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -178,7 +245,7 @@ button:active {
 }
 
 .career-steps h4 {
-  color: #1f2937;
+  color: #5d4037;
   font-size: 1.1rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -186,7 +253,7 @@ button:active {
 
 .career-steps ol {
   margin-left: 1.5rem;
-  color: #4b5563;
+  color: #5d4037;
 }
 
 .career-steps li {
@@ -196,7 +263,7 @@ button:active {
 }
 
 .career-steps li::marker {
-  color: #667eea;
+  color: #8d6e63;
   font-weight: 600;
 }
 
@@ -205,7 +272,7 @@ button:active {
   display: block;
   margin: 3rem auto 0 auto;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
   color: white;
   border: none;
   border-radius: 50px;
@@ -213,12 +280,12 @@ button:active {
   font-weight: 600;
   font-size: 1.1rem;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(109, 76, 65, 0.3);
 }
 
 #backHome:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 28px rgba(109, 76, 65, 0.4);
 }
 
 /* Responsive Design */
@@ -237,5 +304,13 @@ button:active {
   
   .career-summary {
     font-size: 1.1rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .button-group button {
+    max-width: 100%;
   }
 }
