@@ -1,12 +1,3 @@
-/*
-  CareerFinderAI - app.js (Enhanced Version)
-
-  Improvements:
-  - Better prompt engineering for clearer career recommendations with steps
-  - Returns 2-3 career options with detailed paths
-  - Enhanced error handling and retry logic
-*/
-
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -17,19 +8,18 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 
-// --- Middleware ---
+//to parse JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend files
 app.use(express.static(path.join(__dirname, "./frontend")));
 
-// --- Helper functions ---
+//sleep helper
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Retry helper for Gemini calls
+//Function to call Gemini API with retry on 429
 async function callGeminiWithRetry({ url, payload, maxRetries = 3 }) {
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
@@ -57,7 +47,7 @@ async function callGeminiWithRetry({ url, payload, maxRetries = 3 }) {
   }
 }
 
-// --- Debug endpoint ---
+//for testing API reachability
 app.get("/api/ask", (req, res) => {
   res.status(200).json({
     ok: true,
@@ -65,7 +55,6 @@ app.get("/api/ask", (req, res) => {
   });
 });
 
-// --- Main API route ---
 app.post("/api/ask", async (req, res) => {
   try {
     const { usrInput } = req.body;
@@ -83,7 +72,8 @@ app.post("/api/ask", async (req, res) => {
     }
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-
+   
+    //Prompt construction for career recommendations
     const payload = {
       contents: [
         {
@@ -122,7 +112,8 @@ ${usrInput}`,
         },
       ],
     };
-
+    
+    //wait for Gemini response
     const response = await callGeminiWithRetry({ url, payload, maxRetries: 3 });
 
     const text =

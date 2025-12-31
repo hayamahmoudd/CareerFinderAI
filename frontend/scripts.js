@@ -1,7 +1,3 @@
-/*
-  Dynamic Quiz System - Asks follow-up questions based on user responses
-*/
-
 // Quiz structure with conditional questions
 const quizData = {
   q1: {
@@ -13,7 +9,7 @@ const quizData = {
     ]
   },
   
-  // Follow-up questions for "working with people"
+  // Follow up questions for "working with people"
   q2_people: {
     question: "When working with people, what appeals to you most?",
     options: [
@@ -23,7 +19,7 @@ const quizData = {
     ]
   },
   
-  // Follow-up questions for "solving technical problems"
+  // Follow up questions for "solving technical problems"
   q2_technical: {
     question: "What type of technical work interests you?",
     options: [
@@ -33,7 +29,7 @@ const quizData = {
     ]
   },
   
-  // Follow-up questions for "organizing and planning"
+  // Follow up questions for "organizing and planning"
   q2_organizing: {
     question: "What kind of organizing do you prefer?",
     options: [
